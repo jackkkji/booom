@@ -45,6 +45,9 @@ public class World_interaction : MonoBehaviour
                 DashCoolDown += Time.deltaTime;
             }
         }
+
+
+
     }
 
     void GetInteraction()
@@ -79,4 +82,9 @@ public class World_interaction : MonoBehaviour
             Candash = false;
         }
     }
+
+
+
+
+
 }
