@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int MAX_HEALTH = 100;
+    public float MAX_HEALTH = 100;
 
-    [SerializeField] public int health = 100;
+    [SerializeField] public float health = 100;
 
 
     // Update is called once per frame

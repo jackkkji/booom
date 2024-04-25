@@ -7,8 +7,6 @@ public class World_interaction : MonoBehaviour
 {
     NavMeshAgent playerAgent;
 
-    public float PlayerHP = 100;
-    public float MaxHP = 100;
 
 
     public float sprintDistance = 0.3f; // ³å´ÌµÄ¾àÀë
