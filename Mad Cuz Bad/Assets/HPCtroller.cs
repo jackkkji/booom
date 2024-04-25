@@ -1,22 +1,22 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;  //Slider的调用需要引用UI源文件
+using UnityEngine.UI;  //Slider浣犺浣狆煇庡憿
 
 public class HPCtroller : MonoBehaviour
 {
-    public Slider PlayerHPSlider;  //实例化一个Slider
-    World_interaction PlayerHP;
+    public Slider PlayerHPSlider;  //璇寸殑閬撶悊Slider
+    Health health8;
     GameObject Player;
 
     private void Start()
     {
         Player = GameObject.FindWithTag("Player");
-        PlayerHP = Player.GetComponent<World_interaction>();
+        health8 = Player.GetComponent<Health>();
     }
 
     void Update()
     {
-        PlayerHPSlider.value = PlayerHP.PlayerHP / PlayerHP.MaxHP;
+        PlayerHPSlider.value = health8.health / health8.MAX_HEALTH;
     }
 }

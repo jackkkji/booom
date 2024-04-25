@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int MAX_HEALTH = 100;
+    public int MAX_HEALTH = 100;
 
-    [SerializeField] private int health = 100;
+    [SerializeField] public int health = 100;
 
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative damage");
         }
 
-        this.health += amount;
+        this.health -= amount;
 
         if (health <= 0)
         {
