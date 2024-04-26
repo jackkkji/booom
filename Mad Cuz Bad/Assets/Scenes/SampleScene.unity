@@ -1009,6 +1009,7 @@ GameObject:
   - component: {fileID: 1425130920}
   - component: {fileID: 1425130921}
   - component: {fileID: 1425130922}
+  - component: {fileID: 1425130923}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1067,11 +1068,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d209dac7da7eb474881fcb48e1be27cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHP: 100
-  MaxHP: 100
   sprintDistance: 10
-  Candash: 1
-  DashCoolDown: 0
+  Canflash: 1
+  FlashCoolDown: 0
 --- !u!54 &1425130921
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1113,6 +1112,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 100
   health: 100
+--- !u!114 &1425130923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425130916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9fd8f99a9fd6b4db7985928808eea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 1425130917}
+  playerCam: {fileID: 1425130917}
+  dashForce: 10
+  dashUpwardForce: 1
+  dashDuration: 2
+  dashCd: 1
+  dashCdTimer: 1
 --- !u!4 &1517824124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: be98189d18095ff409b88afa3d70d9b2, type: 3}

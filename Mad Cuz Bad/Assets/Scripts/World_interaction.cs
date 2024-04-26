@@ -10,8 +10,8 @@ public class World_interaction : MonoBehaviour
 
 
     public float sprintDistance = 0.3f; // 冲刺的距离
-    public bool Candash = true;
-    public float DashCoolDown = 0f;
+    public bool Canflash = true;
+    public float FlashCoolDown = 0f;
 
     private void Start()
     {
@@ -24,23 +24,23 @@ public class World_interaction : MonoBehaviour
         {
             GetInteraction();
         }
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.F))
         {
-            if (Candash)
+            if (Canflash)
             {
-                Dash();
+                Flash();
             }
         }
-        if (!Candash)
+        if (!Canflash)
         {
-            if (DashCoolDown >= 3f)
+            if (FlashCoolDown >= 3f)
             {
-                Candash = true;
-                DashCoolDown = 0f;
+                Canflash = true;
+                FlashCoolDown = 0f;
             }
             else
             {
-                DashCoolDown += Time.deltaTime;
+                FlashCoolDown += Time.deltaTime;
             }
         }
 
@@ -66,7 +66,7 @@ public class World_interaction : MonoBehaviour
         }
     }
 
-    void Dash()
+    void Flash()
     {
         Ray interactionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit interactionInfo;
@@ -77,7 +77,7 @@ public class World_interaction : MonoBehaviour
 
             playerAgent.ResetPath(); // 打断当前的NavMesh路径
             playerAgent.Move(sprintTarget); // 让角色朝目标方向移动固定距离
-            Candash = false;
+            Canflash = false;
         }
     }
 
