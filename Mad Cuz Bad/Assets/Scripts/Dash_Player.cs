@@ -16,6 +16,7 @@ public class Dash_Player : MonoBehaviour
     public float dashUpwardForce;
     public float dashDuration;
 
+    [Header("Colddown")]
     public float dashCd;
     public float dashCdTimer;
 
@@ -30,11 +31,23 @@ public class Dash_Player : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
+        {
             Dash();
+        }
+
+
+        if (dashCdTimer > 0)
+        {
+            dashCdTimer -= Time.deltaTime;
+        }
     }
 
     void Dash()
     {
+
+        if (dashCdTimer > 0) return;
+        else dashCdTimer = dashCd;
+
         Vector3 forceToApply = orientation.forward * dashForce + orientation.up * dashUpwardForce;
         rb.AddForce(forceToApply, ForceMode.Impulse);
         Invoke(nameof(ResetDash), dashDuration);

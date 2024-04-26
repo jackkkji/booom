@@ -1126,11 +1126,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 1425130917}
   playerCam: {fileID: 1425130917}
-  dashForce: 10
+  dashForce: 25
   dashUpwardForce: 1
-  dashDuration: 2
-  dashCd: 1
-  dashCdTimer: 1
+  dashDuration: 3
+  dashCd: 5
+  dashCdTimer: 0
 --- !u!4 &1517824124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: be98189d18095ff409b88afa3d70d9b2, type: 3}
