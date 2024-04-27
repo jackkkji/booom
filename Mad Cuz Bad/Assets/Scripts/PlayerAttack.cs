@@ -13,11 +13,14 @@ public class Player_Attack : MonoBehaviour
     private float timeToAttack = 0.25f;
     private float timer = 0f;
 
+    private Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        attackArea = transform.GetChild(0).gameObject;      
+        attackArea = transform.GetChild(0).gameObject;
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -47,6 +50,7 @@ public class Player_Attack : MonoBehaviour
     {
         attacking = true;
         attackArea.SetActive(attacking);
+
     }
 
 }

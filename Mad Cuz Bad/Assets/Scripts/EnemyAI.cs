@@ -8,15 +8,19 @@ public class EnemyAI : MonoBehaviour
     public float detectionDistance = 10.0f;
     public float sightRange = 20.0f;  // 视线范围
     public float attackRange = 5.0f;  // 攻击范围
+    private Animator animator;
 
     private NavMeshAgent Enemy1Agent;
     private Vector3 startPosition;
     private enum State { Patrolling, Chasing, Attacking }
     private State currentState;
+    public bool isAttacking = false;
+    public float AttackCoolDown;
 
     void Start()
     {
         Enemy1Agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
         startPosition = transform.position;  // 记录起始位置
         currentState = State.Patrolling;  // 初始状态为巡逻
         InitPatrol();  // 初始化巡逻点
@@ -40,6 +44,7 @@ public class EnemyAI : MonoBehaviour
             if (distanceToPlayer <= attackRange)
             {
                 currentState = State.Attacking;  // 玩家进入攻击范围，开始攻击
+                isAttacking = true;
             }
             else if (distanceToPlayer > sightRange)
             {
@@ -48,10 +53,21 @@ public class EnemyAI : MonoBehaviour
         }
         else if (currentState == State.Attacking)
         {
-            Attack();
-            if (distanceToPlayer > attackRange)
+            if (distanceToPlayer > attackRange && !isAttacking)
             {
                 currentState = State.Chasing;  // 玩家离开攻击范围，重新追击
+            }
+            Attack();
+        }
+
+        if (isAttacking)
+        {
+            AttackCoolDown += Time.deltaTime;
+            if (AttackCoolDown >= 1)
+            {
+                isAttacking = false;
+                AttackCoolDown = 0;
+                animator.ResetTrigger("Enemy1_Attacking");
             }
         }
     }
@@ -75,6 +91,7 @@ public class EnemyAI : MonoBehaviour
         {
             Vector3 randomDirection = Random.insideUnitSphere * detectionDistance;
             randomDirection += startPosition;
+            speed = 3.0f;
             NavMeshHit hit;
             if (NavMesh.SamplePosition(randomDirection, out hit, detectionDistance, 1))
             {
@@ -90,11 +107,15 @@ public class EnemyAI : MonoBehaviour
         // 追击行为
         Enemy1Agent.destination = player.position;
         UnityEngine.Debug.Log("Chasing the player!");
+        speed = 5.0f;
+        animator.ResetTrigger("Enemy1_Attacking");
     }
 
     void Attack()
     {
         // 攻击行为
+        animator.SetTrigger("Enemy1_Attacking");
+        speed = 1f;
         UnityEngine.Debug.Log("Attacking the player!");
     }
 }

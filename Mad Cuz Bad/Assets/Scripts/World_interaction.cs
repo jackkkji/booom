@@ -12,10 +12,12 @@ public class World_interaction : MonoBehaviour
     public float sprintDistance = 0.3f; // 冲刺的距离
     public bool Canflash = true;
     public float FlashCoolDown = 0f;
+    private Animator animator;
 
     private void Start()
     {
         playerAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -24,7 +26,7 @@ public class World_interaction : MonoBehaviour
         {
             GetInteraction();
         }
-        if (Input.GetKey(KeyCode.F))
+        /*if (Input.GetKey(KeyCode.F))    先不要闪现
         {
             if (Canflash)
             {
@@ -42,7 +44,7 @@ public class World_interaction : MonoBehaviour
             {
                 FlashCoolDown += Time.deltaTime;
             }
-        }
+        }*/
 
 
 
@@ -61,7 +63,8 @@ public class World_interaction : MonoBehaviour
             }
             else
             {
-                playerAgent.destination = interactionInfo.point;    
+                playerAgent.destination = interactionInfo.point;
+                animator.SetTrigger("PMC_Moving");
             }
         }
     }

@@ -19,12 +19,14 @@ public class Dash_Player : MonoBehaviour
     [Header("Colddown")]
     public float dashCd;
     public float dashCdTimer;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<World_interaction>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -51,7 +53,8 @@ public class Dash_Player : MonoBehaviour
         Vector3 forceToApply = orientation.forward * dashForce + orientation.up * dashUpwardForce;
         rb.AddForce(forceToApply, ForceMode.Impulse);
         Invoke(nameof(ResetDash), dashDuration);
-
+        animator.SetTrigger("PMC_dashing");
+        animator.SetTrigger("PMC_Attacking");
     }
 
     void ResetDash()
