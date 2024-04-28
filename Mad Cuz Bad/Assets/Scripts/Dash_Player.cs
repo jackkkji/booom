@@ -54,7 +54,6 @@ public class Dash_Player : MonoBehaviour
         rb.AddForce(forceToApply, ForceMode.Impulse);
         Invoke(nameof(ResetDash), dashDuration);
         animator.SetTrigger("PMC_dashing");
-        animator.SetTrigger("PMC_Attacking");
     }
 
     void ResetDash()

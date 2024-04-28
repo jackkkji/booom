@@ -26,25 +26,37 @@ public class World_interaction : MonoBehaviour
         {
             GetInteraction();
         }
-        /*if (Input.GetKey(KeyCode.F))    先不要闪现
+        
+
+        if (playerAgent.remainingDistance < 0.5f)
         {
-            if (Canflash)
-            {
-                Flash();
-            }
+            animator.SetBool("PMC_Moving", false);
         }
-        if (!Canflash)
-        {
-            if (FlashCoolDown >= 3f)
-            {
-                Canflash = true;
-                FlashCoolDown = 0f;
-            }
-            else
-            {
-                FlashCoolDown += Time.deltaTime;
-            }
-        }*/
+
+        /* if (playerAgent.isPathStale)
+         {
+             animator.SetTrigger("PMC_Moving");
+         }
+
+         if (Input.GetKey(KeyCode.F))    先不要闪现
+         {
+             if (Canflash)
+             {
+                 Flash();
+             }
+         }
+         if (!Canflash)
+         {
+             if (FlashCoolDown >= 3f)
+             {
+                 Canflash = true;
+                 FlashCoolDown = 0f;
+             }
+             else
+             {
+                 FlashCoolDown += Time.deltaTime;
+             }
+         }*/
 
 
 
@@ -64,7 +76,7 @@ public class World_interaction : MonoBehaviour
             else
             {
                 playerAgent.destination = interactionInfo.point;
-                animator.SetTrigger("PMC_Moving");
+                animator.SetBool("PMC_Moving", true);
             }
         }
     }
