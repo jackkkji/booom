@@ -17,6 +17,12 @@ public class EnemyAI : MonoBehaviour
     public bool isAttacking = false;
     public float AttackCoolDown;
 
+
+    
+
+
+
+
     void Start()
     {
         Enemy1Agent = GetComponent<NavMeshAgent>();

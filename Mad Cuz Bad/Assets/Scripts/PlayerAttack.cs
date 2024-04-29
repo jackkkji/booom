@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player_Attack : MonoBehaviour
 {
 
-    public GameObject attackArea;
+    public GameObject attackArea = default;
 
     private bool attacking = false;
 
@@ -19,7 +19,7 @@ public class Player_Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //attackArea = transform.GetChild(0).gameObject;
+        attackArea = transform.GetChild(0).gameObject;
         animator = GetComponentInChildren<Animator>();
     }
 

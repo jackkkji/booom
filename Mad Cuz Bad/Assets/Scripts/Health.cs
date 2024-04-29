@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            Damage(10);
+            // Damage(10);
         }    
     }
 
