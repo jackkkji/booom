@@ -17,14 +17,24 @@ public class EnemyAI : MonoBehaviour
     public bool isAttacking = false;
     public float AttackCoolDown;
 
-
-    
-
+// NEW
+    public GameObject attackArea = default;
+    private float timeToAttack = 1f;
+    private float timer = 0f;
+//
 
 
 
     void Start()
     {
+        //NEW
+        attackArea = transform.GetChild(0).gameObject;
+        animator = GetComponentInChildren<Animator>();
+        //
+
+
+
+
         Enemy1Agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
         startPosition = transform.position;  // 记录起始位置
@@ -34,7 +44,27 @@ public class EnemyAI : MonoBehaviour
 
     void FixedUpdate()
     {
+        //NEW
+        if (isAttacking)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= timeToAttack)
+            {
+                timer = 0;
+                isAttacking = false;
+                attackArea.SetActive(isAttacking);
+
+            }
+        }
+        //
+
+
+
+
+
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
 
         if (currentState == State.Patrolling)
         {
@@ -120,8 +150,20 @@ public class EnemyAI : MonoBehaviour
     void Attack()
     {
         // 攻击行为
-        animator.SetTrigger("Enemy1_Attacking");
+        Enemy_Attack();
         speed = 1f;
         UnityEngine.Debug.Log("Attacking the player!");
     }
+
+
+    private void Enemy_Attack()
+    {
+        isAttacking = true;
+        attackArea.SetActive(isAttacking);
+        animator.SetTrigger("Enemy1_Attacking");
+    }
+
+
+
+
 }
