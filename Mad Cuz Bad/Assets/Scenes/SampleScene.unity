@@ -372,7 +372,6 @@ GameObject:
   - component: {fileID: 617682658}
   - component: {fileID: 617682657}
   - component: {fileID: 617682660}
-  - component: {fileID: 617682659}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -501,23 +500,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HEALTH: 100
   health: 20
---- !u!114 &617682659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617682652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a8a39126516fca41a1ccda0b0a3a7a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackArea: {fileID: 0}
-  attacking: 0
-  timeToAttack: 0.25
-  timer: 0
-  animator: {fileID: 0}
 --- !u!114 &617682660
 MonoBehaviour:
   m_ObjectHideFlags: 0
