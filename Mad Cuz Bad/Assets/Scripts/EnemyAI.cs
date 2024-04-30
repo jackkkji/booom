@@ -17,6 +17,10 @@ public class EnemyAI : MonoBehaviour
     public bool isAttacking = false;
     public float AttackCoolDown;
 
+    private Health EneHealth;
+    private float CurrentHealth;
+    private float DestoryTimer = 0f;
+
 // NEW
     public GameObject attackArea = default;
     private float timeToAttack = 1f;
@@ -30,6 +34,7 @@ public class EnemyAI : MonoBehaviour
         //NEW
         attackArea = transform.GetChild(0).gameObject;
         animator = GetComponentInChildren<Animator>();
+        EneHealth = GetComponent<Health>();
         //
 
 
@@ -72,6 +77,7 @@ public class EnemyAI : MonoBehaviour
             if (distanceToPlayer <= sightRange)
             {
                 currentState = State.Chasing;  // 看到玩家，开始追击
+                animator.SetBool("EnemyChasing", true);
             }
         }
         else if (currentState == State.Chasing)
@@ -85,6 +91,7 @@ public class EnemyAI : MonoBehaviour
             else if (distanceToPlayer > sightRange)
             {
                 currentState = State.Patrolling;  // 玩家离开视线范围，返回巡逻
+                animator.SetBool("EnemyChasing", false);
             }
         }
         else if (currentState == State.Attacking)
@@ -104,47 +111,59 @@ public class EnemyAI : MonoBehaviour
                 isAttacking = false;
                 AttackCoolDown = 0;
                 animator.ResetTrigger("Enemy1_Attacking");
+
             }
         }
+
+        Enenmygethurt();
     }
 
     void InitPatrol()
     {
-        // 初始化巡逻点
-        Vector3 patrolDirection = Random.insideUnitSphere * detectionDistance;
-        patrolDirection += startPosition;
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(patrolDirection, out hit, detectionDistance, 1))
+        if (DestoryTimer == 0)
         {
-            Enemy1Agent.destination = hit.position;
+            // 初始化巡逻点
+            Vector3 patrolDirection = Random.insideUnitSphere * detectionDistance;
+            patrolDirection += startPosition;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(patrolDirection, out hit, detectionDistance, 1))
+            {
+                Enemy1Agent.destination = hit.position;
+            }
         }
     }
 
     void Patrol()
     {
-        // 巡逻行为，可以是随机移动到附近的点
-        if (Enemy1Agent.remainingDistance < 0.5f)
+        if (DestoryTimer == 0)
         {
-            Vector3 randomDirection = Random.insideUnitSphere * detectionDistance;
-            randomDirection += startPosition;
-            speed = 3.0f;
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomDirection, out hit, detectionDistance, 1))
+            // 巡逻行为，可以是随机移动到附近的点
+            if (Enemy1Agent.remainingDistance < 0.5f)
             {
-                Vector3 finalPosition = hit.position;
-                Enemy1Agent.destination = finalPosition;
-                UnityEngine.Debug.Log("Patrolling - New point set.");
+                Vector3 randomDirection = Random.insideUnitSphere * detectionDistance;
+                randomDirection += startPosition;
+                speed = 3.0f;
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(randomDirection, out hit, detectionDistance, 1))
+                {
+                    Vector3 finalPosition = hit.position;
+                    Enemy1Agent.destination = finalPosition;
+                    UnityEngine.Debug.Log("Patrolling - New point set.");
+                }
             }
         }
     }
 
     void Chase()
     {
-        // 追击行为
-        Enemy1Agent.destination = player.position;
-        UnityEngine.Debug.Log("Chasing the player!");
-        speed = 5.0f;
-        animator.ResetTrigger("Enemy1_Attacking");
+        if (DestoryTimer == 0)
+        {
+            // 追击行为
+            Enemy1Agent.destination = player.position;
+            UnityEngine.Debug.Log("Chasing the player!");
+            speed = 5.0f;
+            animator.ResetTrigger("Enemy1_Attacking");
+        }
     }
 
     void Attack()
@@ -158,12 +177,36 @@ public class EnemyAI : MonoBehaviour
 
     private void Enemy_Attack()
     {
-        isAttacking = true;
-        attackArea.SetActive(isAttacking);
-        animator.SetTrigger("Enemy1_Attacking");
+        if (DestoryTimer == 0)
+        {
+            isAttacking = true;
+            attackArea.SetActive(isAttacking);
+            animator.SetTrigger("Enemy1_Attacking");
+        }
     }
 
+    private void Enenmygethurt()
+    {
+        if (CurrentHealth != EneHealth.health)
+        {
+            //animator.SetTrigger("EnemyGetHurt");
+            CurrentHealth = EneHealth.health;
+        }
+        if (EneHealth.health <= 0)
+        {   
+            if(DestoryTimer == 0)
+            {
+               speed = 0f;
+               animator.SetTrigger("EnemyDeath");
+            }
+            DestoryTimer += Time.deltaTime;
+            if (DestoryTimer >= 3f)
+            {
+                Destroy(gameObject);
+            }
 
+        }
+    }
 
 
 }

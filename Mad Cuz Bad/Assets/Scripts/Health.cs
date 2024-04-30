@@ -26,11 +26,6 @@ public class Health : MonoBehaviour
         }
 
         this.health -= amount;
-
-        if (health <= 0)
-        {
-            Die();
-        }
     }
 
 
