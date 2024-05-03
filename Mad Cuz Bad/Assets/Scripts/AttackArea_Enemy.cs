@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackArea_Enemy : MonoBehaviour
 
 {
-    private int damage = 3;
+    public int damage = 3;
 
     // Start is called before the first frame update
 
@@ -18,6 +18,13 @@ public class AttackArea_Enemy : MonoBehaviour
         }
     }
 
+    private void ChangeDamage(int damage)
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            damage = 999;
+        }
+    }
 
 
 

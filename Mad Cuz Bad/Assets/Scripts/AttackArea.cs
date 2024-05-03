@@ -17,9 +17,18 @@ public class AttackArea : MonoBehaviour
             health.Damage(damage);
         }
     }
-    
-        
-    
+
+
+    private void ChangeDamage(int damage)
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            damage = 999;
+        }
+    }
+
+
+
 
 
 
