@@ -543,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4973db285285aa347a29bbcb7b1c46a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,6 +1506,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7680741139452222768, guid: f552e2980ad47974789140a2bd8d983c, type: 3}
   bulletSpeed: 8
   particleEffectPrefab: {fileID: 6311231408995480497, guid: a0edc24215a5ae541b18bb6bc812e0de, type: 3}
+  bulletCd: 3
+  bulletCdTimer: 0
 --- !u!1001 &1466621802
 PrefabInstance:
   m_ObjectHideFlags: 0
