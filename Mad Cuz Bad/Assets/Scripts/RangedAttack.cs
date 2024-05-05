@@ -47,4 +47,19 @@ public class RangedAttack : MonoBehaviour
     }
 
 
+
+    void bullet_unlimited()
+    {
+
+        // 实例化子弹
+        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+
+        // 实例化粒子效果
+        var effect = Instantiate(particleEffectPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+
+        animator.SetTrigger("PMC_Range");
+
+
+    }
 }

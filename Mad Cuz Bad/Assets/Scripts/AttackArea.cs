@@ -19,12 +19,11 @@ public class AttackArea : MonoBehaviour
     }
 
 
-    private void ChangeDamage(int damage)
+    private void ChangeDamage()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            damage = 999;
-        }
+ 
+    damage = 999;
+
     }
 
 

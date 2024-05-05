@@ -97,6 +97,12 @@ public class World_interaction : MonoBehaviour
     }
 
 
+    void speed_change()
+    {
+
+        playerAgent.acceleration = 1000f;     
+        
+    }
 
 
 
