@@ -104,9 +104,9 @@ public class MainMenuManager : MonoBehaviour
 
     private void SetStartUI()
     {
-        //fadeAnimator.SetTrigger("FadeIn");
+        fadeAnimator.SetTrigger("FadeIn");
         homePanel.SetActive(true);
-        settingsPanel.SetActive(false);
+        settingsPanel.SetActive(true);
     }
 
     public void UIEditorUpdate()
@@ -244,7 +244,7 @@ public class MainMenuManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Scene Load
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
     }
 
     public void Quit()
