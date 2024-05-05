@@ -25,10 +25,14 @@ public class EnemyAI : MonoBehaviour
     public GameObject attackArea = default;
     private float timeToAttack = 1f;
     private float timer = 0f;
-//
 
+    //血条
+    [SerializeField] EHealthBar healthBar;
 
-
+    private void Awake()
+    {
+        healthBar = GetComponentInChildren<EHealthBar>();
+    }
     void Start()
     {
         //NEW
@@ -45,6 +49,7 @@ public class EnemyAI : MonoBehaviour
         startPosition = transform.position;  // 记录起始位置
         currentState = State.Patrolling;  // 初始状态为巡逻
         InitPatrol();  // 初始化巡逻点
+        healthBar.UpdateHealthBar(EneHealth.health, EneHealth.MAX_HEALTH);//血条
     }
 
     void FixedUpdate()
@@ -187,6 +192,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Enenmygethurt()
     {
+        healthBar.UpdateHealthBar(EneHealth.health, EneHealth.MAX_HEALTH);
         if (CurrentHealth != EneHealth.health)
         {
             //animator.SetTrigger("EnemyGetHurt");
