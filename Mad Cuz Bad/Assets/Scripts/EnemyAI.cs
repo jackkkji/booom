@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     public bool isAttacking = false;
     public float AttackCoolDown;
 
-    private Health EneHealth;
+    private Enemy_Health EneHealth;
     private float CurrentHealth;
     private float DestoryTimer = 0f;
 
@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour
         //NEW
         attackArea = transform.GetChild(0).gameObject;
         animator = GetComponentInChildren<Animator>();
-        EneHealth = GetComponent<Health>();
+        EneHealth = GetComponent<Enemy_Health>();
         //
 
 

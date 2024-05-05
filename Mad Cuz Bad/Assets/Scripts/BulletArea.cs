@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
@@ -21,9 +20,9 @@ public class BulletArea : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
 
-        if (collider.GetComponent<Health>() != null)
+        if (collider.GetComponent<Enemy_Health>() != null)
         {
-            Health health = collider.GetComponent<Health>();
+            Enemy_Health health = collider.GetComponent<Enemy_Health>();
             health.Damage(damage);
         }
 

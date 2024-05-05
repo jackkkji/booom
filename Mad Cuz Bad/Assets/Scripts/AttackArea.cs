@@ -11,10 +11,10 @@ public class AttackArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.GetComponent<Health>() != null)
+        if (collider.GetComponent<Enemy_Health>() != null)
         {
-            Health health = collider.GetComponent<Health>();
-            health.Damage(damage);
+            Enemy_Health enemy_health = collider.GetComponent<Enemy_Health>();
+            enemy_health.Damage(damage);
         }
     }
 
