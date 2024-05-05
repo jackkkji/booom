@@ -18,6 +18,6 @@ public class EHealthBar : MonoBehaviour
     void Update()
     {
         transform.rotation = ecamera.transform.rotation;
-        transform.position = ecamera.WorldToScreenPoint(etarget.position + eoffset);
+        transform.position = etarget.position + eoffset;
     }
 }
