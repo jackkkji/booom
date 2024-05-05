@@ -9,12 +9,12 @@ public class EnemySpawner : MonoBehaviour
     public int zPos;
     public int EnemyCount;
 
-    private void Start()
+    public void Start()
     {
         StartCoroutine(SpawnEnemies());
     }
 
-    private IEnumerator SpawnEnemies()
+    public IEnumerator SpawnEnemies()
     {
         while (EnemyCount < 20)
         {
