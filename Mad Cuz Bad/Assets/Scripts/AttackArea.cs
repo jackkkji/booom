@@ -5,7 +5,8 @@ using UnityEngine;
 public class AttackArea : MonoBehaviour
 
 {
-    private int damage = 3;
+    public int damage = 3;
+    public int InstantKillstate = 0;
 
     // Start is called before the first frame update
 
@@ -19,11 +20,19 @@ public class AttackArea : MonoBehaviour
     }
 
 
-    private void ChangeDamage()
+    public void ChangeDamage()
     {
- 
-    damage = 999;
-
+        damage = 999;
+        if (InstantKillstate == 0)
+       {
+            damage = 999;
+            InstantKillstate = 1;
+        }
+        if (InstantKillstate == 1)
+        {
+            damage = 3;
+            InstantKillstate = 0;
+        } 
     }
 
 
