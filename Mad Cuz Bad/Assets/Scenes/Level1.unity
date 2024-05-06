@@ -14434,11 +14434,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1062117235}
   lines:
-  - "\u64CD\u4F5C\u6559\u5B66: "
+  - "\u64CD\u4F5C\u6559\u5B66 (\u5DE6\u952E\u7EE7\u7EED): "
   - "\u9F20\u6807\u53F3\u952E\u70B9\u51FB\u5730\u677F\u79FB\u52A8 \u7A7A\u683C\u952E\u8FD1\u6218\u653B\u51FB"
   - "E\u952E\u7FFB\u6EDA T\u952E\u8FDC\u7A0B\u653B\u51FB"
-  - "TAP\u952E\u5524\u9192\u201C\u7CFB\u7EDF\u201D"
-  textSpeed: 0.3
+  - "TAB\u952E\u5524\u9192\u201C\u7CFB\u7EDF\u201D"
+  textSpeed: 0.1
 --- !u!114 &1638014124
 MonoBehaviour:
   m_ObjectHideFlags: 0
