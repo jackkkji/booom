@@ -13,6 +13,8 @@ public class RangedAttack : MonoBehaviour
     public float bulletCd;
     public float bulletCdTimer;
 
+    public bool RangedAttackHacker = false;
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -20,9 +22,16 @@ public class RangedAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            bullet();
+            if (RangedAttackHacker)
+            {
+                bullet_unlimited();
+            }
+            else if (!RangedAttackHacker)
+            {
+               bullet();
+            }
         }
         if (bulletCdTimer > 0)
         {
@@ -62,4 +71,18 @@ public class RangedAttack : MonoBehaviour
 
 
     }
+
+    public void ChangeAttackHacker()
+    {
+        if (RangedAttackHacker)
+        {
+            RangedAttackHacker = false;
+        }
+        else if (!RangedAttackHacker)
+        {
+            RangedAttackHacker = true;
+        }
+    }
+
+
 }

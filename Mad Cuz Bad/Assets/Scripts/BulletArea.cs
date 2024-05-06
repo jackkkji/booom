@@ -10,6 +10,7 @@ public class BulletArea : MonoBehaviour
 {
 
     private int damage = 20;
+    private float timer = 0f;
 
 
 
@@ -24,7 +25,17 @@ public class BulletArea : MonoBehaviour
         {
             Enemy_Health health = collider.GetComponent<Enemy_Health>();
             health.Damage(damage);
+            Destroy(gameObject);
         }
 
+    }
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer >= 1f)
+        {
+            Destroy(gameObject);
+        }
     }
 }

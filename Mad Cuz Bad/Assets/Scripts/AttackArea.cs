@@ -6,7 +6,7 @@ public class AttackArea : MonoBehaviour
 
 {
     public int damage = 3;
-    public int InstantKillstate = 0;
+    public bool InstantKillstate = false;
 
     // Start is called before the first frame update
 
@@ -22,17 +22,16 @@ public class AttackArea : MonoBehaviour
 
     public void ChangeDamage()
     {
-        damage = 999;
-        if (InstantKillstate == 0)
-       {
-            damage = 999;
-            InstantKillstate = 1;
-        }
-        if (InstantKillstate == 1)
+         if (InstantKillstate)
         {
             damage = 3;
-            InstantKillstate = 0;
-        } 
+            InstantKillstate = false;
+        }
+         else if (!InstantKillstate)
+         {
+            damage = 999;
+            InstantKillstate = true;
+        }
     }
 
 

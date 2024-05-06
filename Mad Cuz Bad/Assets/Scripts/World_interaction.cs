@@ -13,6 +13,7 @@ public class World_interaction : MonoBehaviour
     public bool Canflash = true;
     public float FlashCoolDown = 0f;
     private Animator animator;
+    public bool HighWayToHell;
 
     private void Start()
     {
@@ -97,11 +98,22 @@ public class World_interaction : MonoBehaviour
     }
 
 
-    void speed_change()
+    public void speed_change()
     {
-
-        playerAgent.acceleration = 1000f;     
-        
+        if (HighWayToHell)
+        {
+            playerAgent.acceleration = 130f;
+            playerAgent.speed = 3.5f;
+            playerAgent.autoBraking = true;
+            HighWayToHell = false;
+        }
+        else if (!HighWayToHell)
+        {
+            playerAgent.acceleration = 100f;
+            playerAgent.speed = 10f;
+            playerAgent.autoBraking = false;
+            HighWayToHell = true;
+        } 
     }
 
 
