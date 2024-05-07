@@ -26,10 +26,12 @@ public class HackerMenu : MonoBehaviour
     private RangedAttack NoCD;
     private World_interaction IShowSpeed;
     private Player_Spawn_Enemy spawner;
+    public InputField mainInputField;
 
     // Start is called before the first frame update
     void Start()
     {
+        mainInputField.ActivateInputField();
         instantkill = GameObject.FindWithTag("Player").GetComponent<AttackArea>();
         NoCD = GameObject.FindWithTag("Player").GetComponent<RangedAttack>();
         IShowSpeed = GameObject.FindWithTag("Player").GetComponent<World_interaction>();
