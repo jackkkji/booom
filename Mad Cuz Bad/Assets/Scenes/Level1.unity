@@ -8310,7 +8310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &770000090
 Transform:
   m_ObjectHideFlags: 0
@@ -13061,6 +13061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 1339131501744923258}
   D4CState: {fileID: 1342402789}
+  PostProcess: {fileID: 770000089}
   instantkillButtonText: {fileID: 2589767369179861429}
   RangedAttackHackerText: {fileID: 1788770287}
   HighSpeedText: {fileID: 853639686}

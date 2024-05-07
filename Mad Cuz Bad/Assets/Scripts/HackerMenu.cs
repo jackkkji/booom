@@ -10,6 +10,7 @@ public class HackerMenu : MonoBehaviour
     private bool Openstate = false;
     public GameObject menu;
     public GameObject D4CState;
+    public GameObject PostProcess;
     public TextMeshProUGUI instantkillButtonText;
     public TextMeshProUGUI RangedAttackHackerText;
     public TextMeshProUGUI HighSpeedText;
@@ -136,12 +137,14 @@ public class HackerMenu : MonoBehaviour
 
                 menu.SetActive(true);
                 D4CState.SetActive(true);
+                PostProcess.SetActive(true);
             }
             else
             {
                 menu.SetActive(false);
                 D4CState.SetActive(false);
                 DirtyDeedsDoneDirtCheap = false;
+                PostProcess.SetActive(false);
                 ResetTimer = 0;
             }
         }
