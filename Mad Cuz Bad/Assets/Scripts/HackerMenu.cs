@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +6,7 @@ using TMPro;
 
 public class HackerMenu : MonoBehaviour
 {
-    //ÏÂ»¬ÕÒ²åÈëË¢¹Ö½Å±¾µÄÌáÊ¾
+    //ÃÃ‚Â»Â¬Ã•Ã’Â²Ã¥ÃˆÃ«Ã‹Â¢Â¹Ã–Â½Ã…Â±Â¾ÂµÃ„ÃŒÃ¡ÃŠÂ¾
     private bool Openstate = false;
     public GameObject menu;
     public GameObject D4CState;
@@ -40,7 +40,7 @@ public class HackerMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("ÎÛ»à¶È" + D4CValue);
+        Debug.Log("æ±¡ç§½åº¦" + D4CValue);
         if (!DirtyDeedsDoneDirtCheap)
         {
             timer += Time.deltaTime;
@@ -79,29 +79,29 @@ public class HackerMenu : MonoBehaviour
             }
             if (instantkill.InstantKillstate)
             {
-                instantkillButtonText.text = "½ûÓÃ";
+                instantkillButtonText.text = "ç¦ç”¨";
             }
             if (!instantkill.InstantKillstate)
             {
-                instantkillButtonText.text = "¼¤»î";
+                instantkillButtonText.text = "å¯ç”¨";
             }
 
             if (NoCD.RangedAttackHacker)
             {
-                RangedAttackHackerText.text = "½ûÓÃ";
+                RangedAttackHackerText.text = "ç¦ç”¨";
             }
             if (!NoCD.RangedAttackHacker)
             {
-                RangedAttackHackerText.text = "¼¤»î";
+                RangedAttackHackerText.text = "å¯ç”¨";
             }
 
             if (IShowSpeed.HighWayToHell)
             {
-                HighSpeedText.text = "½ûÓÃ";
+                HighSpeedText.text = "ç¦ç”¨";
             }
             if (!IShowSpeed.HighWayToHell)
             {
-                HighSpeedText.text = "¼¤»î";
+                HighSpeedText.text = "å¯ç”¨";
             }
 
             if (IShowSpeed.HighWayToHell | NoCD.RangedAttackHacker | instantkill.InstantKillstate)
@@ -129,7 +129,7 @@ public class HackerMenu : MonoBehaviour
         else
         {
             ResetTimer += Time.deltaTime;
-            //ÇëÔÚÕâÀïµ÷ÓÃË¢¹Ö½Å±¾£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡
+            //Ã‡Ã«Ã”ÃšÃ•Ã¢Ã€Ã¯ÂµÃ·Ã“ÃƒÃ‹Â¢Â¹Ã–Â½Ã…Â±Â¾Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡Â£Â¡
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             if (ResetTimer <= 10f)
             {
