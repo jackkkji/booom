@@ -26,6 +26,9 @@ public class EnemyAI : MonoBehaviour
     private float timeToAttack = 1f;
     private float timer = 0f;
 
+    public GameObject Ending;
+    public bool Boss;
+
     //血条
     [SerializeField] EHealthBar healthBar;
 
@@ -199,16 +202,24 @@ public class EnemyAI : MonoBehaviour
             CurrentHealth = EneHealth.health;
         }
         if (EneHealth.health <= 0)
-        {   
-            if(DestoryTimer == 0)
+        {
+            if (!Boss)
             {
-               speed = 0f;
-               animator.SetTrigger("EnemyDeath");
+                if (DestoryTimer == 0)
+                {
+                    speed = 0f;
+                    animator.SetTrigger("EnemyDeath");
+                }
+                DestoryTimer += Time.deltaTime;
+                if (DestoryTimer >= 3f)
+                {
+                    Destroy(gameObject);
+                }
             }
-            DestoryTimer += Time.deltaTime;
-            if (DestoryTimer >= 3f)
+            else
             {
-                Destroy(gameObject);
+                Time.timeScale = 0;
+                Ending.SetActive(true);
             }
 
         }

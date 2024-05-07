@@ -27,6 +27,8 @@ public class HackerMenu : MonoBehaviour
     private World_interaction IShowSpeed;
     private Player_Spawn_Enemy spawner;
 
+    private Dialogue InputEnabler;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class HackerMenu : MonoBehaviour
         NoCD.RangedAttackHacker = false;
         IShowSpeed.HighWayToHell = false;
         DirtyDeedsDoneDirtCheap = false;
+        InputEnabler = GameObject.Find("DialogueBox").GetComponentInChildren<Dialogue>();
     }
 
     // Update is called once per frame
@@ -65,19 +68,22 @@ public class HackerMenu : MonoBehaviour
 
         if (!DirtyDeedsDoneDirtCheap)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (!InputEnabler.PlayingIntro)
             {
-                if (Openstate)
+                if (Input.GetKeyDown(KeyCode.Tab))
                 {
-                    menu.SetActive(false);
-                    Time.timeScale = 1;
-                    Openstate = false;
-                }
-                else
-                {
-                    menu.SetActive(true);
-                    Time.timeScale = 0;
-                    Openstate = true;
+                    if (Openstate)
+                    {
+                        menu.SetActive(false);
+                        Time.timeScale = 1;
+                        Openstate = false;
+                    }
+                    else
+                    {
+                        menu.SetActive(true);
+                        Time.timeScale = 0;
+                        Openstate = true;
+                    }
                 }
             }
             if (instantkill.InstantKillstate)

@@ -10502,6 +10502,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 196923452}
     - target: {fileID: 5775353219164975144, guid: 28559e2d40bc78b4f900bcb2e5d8909b, type: 3}
+      propertyPath: Boss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775353219164975144, guid: 28559e2d40bc78b4f900bcb2e5d8909b, type: 3}
+      propertyPath: Ending
+      value: 
+      objectReference: {fileID: 1840169540}
+    - target: {fileID: 5775353219164975144, guid: 28559e2d40bc78b4f900bcb2e5d8909b, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1827770892}
@@ -13399,7 +13407,6 @@ MonoBehaviour:
   RangedAttackHackerText: {fileID: 1788770287}
   HighSpeedText: {fileID: 853639686}
   DirtyDeedsDoneDirtCheap: 0
-  mainInputField: {fileID: 0}
 --- !u!1001 &1245237393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16908,6 +16915,7 @@ MonoBehaviour:
   intro2: {fileID: 143243634}
   intro3: {fileID: 383749526}
   timer: 0
+  PlayingIntro: 0
 --- !u!114 &1638014124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23005,7 +23013,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1840169541}
   - {fileID: 6674623883775435984}
   - {fileID: 1190885793580279783}
   - {fileID: 1638014122}
@@ -23013,6 +23020,7 @@ RectTransform:
   - {fileID: 143243635}
   - {fileID: 383749527}
   - {fileID: 1090139731}
+  - {fileID: 1840169541}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
