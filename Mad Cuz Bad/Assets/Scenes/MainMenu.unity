@@ -1296,6 +1296,14 @@ PrefabInstance:
       propertyPath: m_Colors.m_NormalColor.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5263712740388658829, guid: 68ebc2fc820d6b4468022ceeb9e29bc5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263712740388658829, guid: 68ebc2fc820d6b4468022ceeb9e29bc5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5263712740461784584, guid: 68ebc2fc820d6b4468022ceeb9e29bc5, type: 3}
       propertyPath: m_Color.b
       value: 0.9607843
