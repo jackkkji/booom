@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float MAX_HEALTH = 100;
+    public GameObject GameOver;
 
     [SerializeField] public float health = 100;
 
@@ -30,10 +31,12 @@ public class Health : MonoBehaviour
 
 
 
+
+
     private void Die()
     {
-        Debug.Log("Dead!");
-        Destroy(gameObject);
+        Time.timeScale = 0f;
+        GameOver.SetActive(true);
     }
 
 
