@@ -25,6 +25,7 @@ public class HackerMenu : MonoBehaviour
     private AttackArea instantkill;
     private RangedAttack NoCD;
     private World_interaction IShowSpeed;
+    private Player_Spawn_Enemy spawner;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class HackerMenu : MonoBehaviour
         instantkill = GameObject.FindWithTag("Player").GetComponent<AttackArea>();
         NoCD = GameObject.FindWithTag("Player").GetComponent<RangedAttack>();
         IShowSpeed = GameObject.FindWithTag("Player").GetComponent<World_interaction>();
+        spawner = GameObject.FindWithTag("Player").GetComponent<Player_Spawn_Enemy>();
         instantkill.InstantKillstate = false;
         NoCD.RangedAttackHacker = false;
         IShowSpeed.HighWayToHell = false;
@@ -45,7 +47,7 @@ public class HackerMenu : MonoBehaviour
         if (!DirtyDeedsDoneDirtCheap)
         {
             timer += Time.deltaTime;
-            if (timer >= 5f)
+            if (timer >= 3f)
             {
                 D4CChecker = Random.Range(0f, 100f);
                 if (D4CChecker < D4CValue)
@@ -113,15 +115,15 @@ public class HackerMenu : MonoBehaviour
                     D4CValue += 1f;
                     if(IShowSpeed.HighWayToHell)
                     {
-                        D4CValue += 0.5f;
+                        D4CValue += 1.5f;
                     }
                     if (NoCD.RangedAttackHacker)
                     {
-                        D4CValue += 0.5f;
+                        D4CValue += 1.5f;
                     }
                     if (instantkill.InstantKillstate)
                     {
-                        D4CValue += 0.5f;
+                        D4CValue += 1.5f;
                     }
                     D4CValueTimer = 0;
                 }
@@ -130,10 +132,17 @@ public class HackerMenu : MonoBehaviour
         else
         {
             ResetTimer += Time.deltaTime;
-            //ÇëÔÚÕâÀïµ÷ÓÃË¢¹Ö½Å±¾£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            
-            if (ResetTimer <= 10f)
+            spawner.SpawnEnemies();
+            if (ResetTimer == 3f)
+            {
+                spawner.SpawnEnemies();
+            }
+            if (ResetTimer == 6f)
+            {
+                spawner.SpawnEnemies();
+            }
+
+            if (ResetTimer <= 5f)
             {
                 menu.SetActive(true);
                 D4CState.SetActive(true);

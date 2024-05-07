@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackArea : MonoBehaviour
 
 {
-    public int damage = 3;
+    private int damage = 18;
     public bool InstantKillstate = false;
 
     // Start is called before the first frame update
