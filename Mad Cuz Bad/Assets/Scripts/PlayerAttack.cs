@@ -15,35 +15,40 @@ public class Player_Attack : MonoBehaviour
 
     private Animator animator;
 
+    private Dialogue InputEnabler;
+
 
     // Start is called before the first frame update
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject;
         animator = GetComponentInChildren<Animator>();
+        InputEnabler = GameObject.Find("DialogueBox").GetComponentInChildren<Dialogue>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!InputEnabler.PlayingIntro)
         {
-            Attack();
-        } 
-        
-        if (attacking)
-        {
-            timer += Time.deltaTime;
-
-            if (timer >= timeToAttack)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                timer = 0;
-                attacking = false;
-                attackArea.SetActive(attacking);
+                Attack();
+            }
 
+            if (attacking)
+            {
+                timer += Time.deltaTime;
+
+                if (timer >= timeToAttack)
+                {
+                    timer = 0;
+                    attacking = false;
+                    attackArea.SetActive(attacking);
+
+                }
             }
         }
-
     }
 
     private void Attack()

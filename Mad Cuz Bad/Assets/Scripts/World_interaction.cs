@@ -8,59 +8,62 @@ public class World_interaction : MonoBehaviour
     NavMeshAgent playerAgent;
 
 
-
     public float sprintDistance = 0.3f; // 冲刺的距离
     public bool Canflash = true;
     public float FlashCoolDown = 0f;
     private Animator animator;
     public bool HighWayToHell;
+    private Dialogue InputEnabler;
 
     private void Start()
     {
         playerAgent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        InputEnabler = GameObject.Find("DialogueBox").GetComponentInChildren<Dialogue>();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (!InputEnabler.PlayingIntro)
         {
-            GetInteraction();
+            if (Input.GetMouseButtonDown(1))
+            {
+                GetInteraction();
+            }
+
+
+            if (playerAgent.remainingDistance < 0.5f)
+            {
+                animator.SetBool("PMC_Moving", false);
+            }
+
+            /* if (playerAgent.isPathStale)
+             {
+                 animator.SetTrigger("PMC_Moving");
+             }
+
+             if (Input.GetKey(KeyCode.F))    先不要闪现
+             {
+                 if (Canflash)
+                 {
+                     Flash();
+                 }
+             }
+             if (!Canflash)
+             {
+                 if (FlashCoolDown >= 3f)
+                 {
+                     Canflash = true;
+                     FlashCoolDown = 0f;
+                 }
+                 else
+                 {
+                     FlashCoolDown += Time.deltaTime;
+                 }
+             }*/
+
+
         }
-        
-
-        if (playerAgent.remainingDistance < 0.5f)
-        {
-            animator.SetBool("PMC_Moving", false);
-        }
-
-        /* if (playerAgent.isPathStale)
-         {
-             animator.SetTrigger("PMC_Moving");
-         }
-
-         if (Input.GetKey(KeyCode.F))    先不要闪现
-         {
-             if (Canflash)
-             {
-                 Flash();
-             }
-         }
-         if (!Canflash)
-         {
-             if (FlashCoolDown >= 3f)
-             {
-                 Canflash = true;
-                 FlashCoolDown = 0f;
-             }
-             else
-             {
-                 FlashCoolDown += Time.deltaTime;
-             }
-         }*/
-
-
-
     }
 
     void GetInteraction()

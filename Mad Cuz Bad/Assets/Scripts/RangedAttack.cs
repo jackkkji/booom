@@ -14,28 +14,33 @@ public class RangedAttack : MonoBehaviour
     public float bulletCdTimer;
 
     public bool RangedAttackHacker = false;
+    private Dialogue InputEnabler;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        InputEnabler = GameObject.Find("DialogueBox").GetComponentInChildren<Dialogue>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (!InputEnabler.PlayingIntro)
         {
-            if (RangedAttackHacker)
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                bullet_unlimited();
+                if (RangedAttackHacker)
+                {
+                    bullet_unlimited();
+                }
+                else if (!RangedAttackHacker)
+                {
+                    bullet();
+                }
             }
-            else if (!RangedAttackHacker)
+            if (bulletCdTimer > 0)
             {
-               bullet();
+                bulletCdTimer -= Time.deltaTime;
             }
-        }
-        if (bulletCdTimer > 0)
-        {
-            bulletCdTimer -= Time.deltaTime;
         }
     }
 

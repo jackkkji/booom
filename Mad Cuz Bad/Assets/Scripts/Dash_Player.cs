@@ -20,6 +20,7 @@ public class Dash_Player : MonoBehaviour
     public float dashCd;
     public float dashCdTimer;
     private Animator animator;
+    private Dialogue InputEnabler;
 
     // Start is called before the first frame update
     void Start()
@@ -27,20 +28,24 @@ public class Dash_Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<World_interaction>();
         animator = GetComponentInChildren<Animator>();
+        InputEnabler = GameObject.Find("DialogueBox").GetComponentInChildren<Dialogue>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!InputEnabler.PlayingIntro)
         {
-            Dash();
-        }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Dash();
+            }
 
 
-        if (dashCdTimer > 0)
-        {
-            dashCdTimer -= Time.deltaTime;
+            if (dashCdTimer > 0)
+            {
+                dashCdTimer -= Time.deltaTime;
+            }
         }
     }
 
