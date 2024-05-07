@@ -121,15 +121,15 @@ public class HackerMenu : MonoBehaviour
                     D4CValue += 1f;
                     if(IShowSpeed.HighWayToHell)
                     {
-                        D4CValue += 1.5f;
+                        D4CValue += 1f;
                     }
                     if (NoCD.RangedAttackHacker)
                     {
-                        D4CValue += 1.5f;
+                        D4CValue += 1f;
                     }
                     if (instantkill.InstantKillstate)
                     {
-                        D4CValue += 1.5f;
+                        D4CValue += 1f;
                     }
                     D4CValueTimer = 0;
                 }

@@ -23,10 +23,10 @@ public class Dialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayingIntro = true;
         intro1.SetActive(true);
         textComponent.text = string.Empty;
         StartDialogue();
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -51,26 +51,28 @@ public class Dialogue : MonoBehaviour
         else
         {
             timer += Time.deltaTime;
-            if (timer <= 3f)
+            if (timer <= 6f)
             {
                 intro1.SetActive(true);
             }
-            if (timer <= 6f && timer >= 3f)
+            if (timer <= 11f && timer >= 6f)
             {
                 intro1.SetActive(false);
                 intro2.SetActive(true);
             }
-            if(timer >= 9f && timer <= 12f)
+            if(timer >= 11f && timer <= 16f)
             {
                 intro2.SetActive(false);
                 intro3.SetActive(true);
             }
-            if (timer >= 12f)
+            if (timer >= 16f)
             {
                 intro2.SetActive(false);
                 intro3.SetActive(false);
                 PlayingIntro = false;
+                
             }
+            
         }
 
     }

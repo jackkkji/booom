@@ -17179,7 +17179,7 @@ MonoBehaviour:
   intro2: {fileID: 143243634}
   intro3: {fileID: 383749526}
   timer: 0
-  PlayingIntro: 0
+  PlayingIntro: 1
 --- !u!114 &1638014124
 MonoBehaviour:
   m_ObjectHideFlags: 0
