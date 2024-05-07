@@ -13,10 +13,6 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            // Damage(10);
-        }    
     }
 
     public void Damage(int amount)
@@ -24,9 +20,14 @@ public class Health : MonoBehaviour
         if (amount < 0)
         {
             throw new System.ArgumentOutOfRangeException("Cannot have negative damage");
+            Die();
         }
 
         this.health -= amount;
+        if (this.health <= 0)
+        {
+            Die();
+        }
     }
 
 
@@ -35,7 +36,7 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0;
         GameOver.SetActive(true);
     }
 

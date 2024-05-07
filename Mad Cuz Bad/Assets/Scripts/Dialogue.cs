@@ -18,6 +18,7 @@ public class Dialogue : MonoBehaviour
     public float timer;
     private bool PlayingIntro;
 
+    public InputField mainInputField;
     private int index;
 
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class Dialogue : MonoBehaviour
         intro1.SetActive(true);
         textComponent.text = string.Empty;
         StartDialogue();
+        mainInputField.DeactivateInputField();
     }
 
     // Update is called once per frame
@@ -70,6 +72,7 @@ public class Dialogue : MonoBehaviour
                 intro2.SetActive(false);
                 intro3.SetActive(false);
                 PlayingIntro = false;
+                mainInputField.ActivateInputField();
             }
         }
 
