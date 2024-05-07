@@ -132,9 +132,9 @@ public class HackerMenu : MonoBehaviour
             ResetTimer += Time.deltaTime;
             //ÇëÔÚÕâÀïµ÷ÓÃË¢¹Ö½Å±¾£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            
             if (ResetTimer <= 10f)
             {
-
                 menu.SetActive(true);
                 D4CState.SetActive(true);
                 PostProcess.SetActive(true);

@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a8439b9ab37fb408742550969cf55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 5942767817016591219, guid: 254aaa1afa04fe443bb4255ee885d066, type: 3}
   speed: 5
   detectionDistance: 10
   sightRange: 10
