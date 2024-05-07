@@ -244,7 +244,14 @@ public class MainMenuManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Scene Load
-        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void LoadLevel1()
+    {
+
+        // Scene Load
+        SceneManager.LoadScene("Level1");
     }
 
     public void Quit()
