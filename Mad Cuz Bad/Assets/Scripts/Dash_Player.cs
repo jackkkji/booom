@@ -20,7 +20,7 @@ public class Dash_Player : MonoBehaviour
     public float dashCd;
     public float dashCdTimer;
     private Animator animator;
-    public Dialogue InputEnabler;
+    private Dialogue InputEnabler;
 
     // Start is called before the first frame update
     void Start()
